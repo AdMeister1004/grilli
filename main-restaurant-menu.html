@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Restaurant Menu</title>
+  <style>
+    /* Add your styles here */
+    .menu-card {
+      cursor: pointer;
+    }
+    .menu-card:hover {
+      transform: scale(1.05);
+      transition: transform 0.2s;
+    }
+    .details {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .details img {
+      max-width: 100px;
+      margin-bottom: 10px;
+    }
+    .details .title-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .details .close-btn {
+      cursor: pointer;
+      background: red;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<section class="section menu" aria-label="menu-label" id="menu">
+  <div class="container">
+
+    <p class="section-subtitle text-center label-2">Special Selection</p>
+
+    <h2 class="headline-1 section-title text-center">Delicious Menu</h2>
+
+    <ul class="grid-list">
+      <!-- Menu items here -->
+      <li>
+        <div class="menu-card" data-item="Greek Salad">
+          <figure class="card-banner img-holder">
+            <img src="./assets/images/menu-1.png" alt="Greek Salad" class="img-cover">
+          </figure>
+          <div>
+            <div class="title-wrapper">
+              <h3 class="title-3">Greek Salad</h3>
+              <span class="badge label-1">Seasonal</span>
+              <span class="span title-2">$25.50</span>
+            </div>
+            <p class="card-text label-1">Tomatoes, green bell pepper, sliced cucumber onion, olives, and feta cheese.</p>
+          </div>
+        </div>
+      </li>
+      <!-- Add more items similarly -->
+    </ul>
+
+    <p class="menu-text text-center">During winter daily from <span class="span">7:00 pm</span> to <span class="span">9:00 pm</span></p>
+
+    <a href="#" class="btn btn-primary">
+      <span class="text text-1">View All Menu</span>
+      <span class="text text-2" aria-hidden="true">View All Menu</span>
+    </a>
+
+    <img src="./assets/images/shape-5.png" alt="shape" class="shape shape-2 move-anim">
+    <img src="./assets/images/shape-6.png" alt="shape" class="shape shape-3 move-anim">
+
+  </div>
+</section>
+
+<!-- Details Modal -->
+<div class="details" id="details">
+  <button class="close-btn" onclick="closeDetails()">Close</button>
+  <img src="" alt="" id="details-img">
+  <div class="title-wrapper">
+    <h3 id="details-title"></h3>
+    <span id="details-price"></span>
+  </div>
+  <p id="details-desc"></p>
+  <p><strong>Testimonial:</strong> <span id="details-testimonial"></span></p>
+  <p><strong>Rating:</strong> <span id="details-rating"></span></p>
+</div>
+
+<script>
+  // JavaScript for handling item clicks and displaying details
+  const items = {
+    "Greek Salad": {
+      img: "./assets/images/menu-1.png",
+      title: "Greek Salad",
+      price: "$25.50",
+      desc: "Tomatoes, green bell pepper, sliced cucumber onion, olives, and feta cheese.",
+      testimonial: "This salad is fantastic! Fresh and full of flavor.",
+      rating: "5/5"
+    },
+    // Add more items similarly
+  };
+
+  document.querySelectorAll('.menu-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const item = items[card.dataset.item];
+      if (item) {
+        document.getElementById('details-img').src = item.img;
+        document.getElementById('details-title').textContent = item.title;
+        document.getElementById('details-price').textContent = item.price;
+        document.getElementById('details-desc').textContent = item.desc;
+        document.getElementById('details-testimonial').textContent = item.testimonial;
+        document.getElementById('details-rating').textContent = item.rating;
+        document.getElementById('details').style.display = 'block';
+      }
+    });
+  });
+
+  function closeDetails() {
+    document.getElementById('details').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>

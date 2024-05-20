@@ -2,11 +2,60 @@
   #index.css
 \*-----------------------------------*/
 
-/**
- * copyright 2022 codewithsadee
- */
+/*-----------------------------------*\
+  breakfast-menu.css
+ \*----------------------------------*/
 
+ .menu-card {
+  cursor: pointer;
+  border: 1px solid #ccc;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.menu-card:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s;
+}
+.menu-card .hidden {
+  display: none;
+}
+.menu-card:hover .hidden {
+  display: block;
+}
+.add-to-cart {
+  background-color: green;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.btn-download {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
 
+.btn-download:hover {
+  background-color: #0056b3;
+  transition: background-color 0.3s ease;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-title {
+  text-align: center;
+  flex-grow: 1;
+}
 
 
 
@@ -20,7 +69,7 @@
    * COLORS
    */
 
-  --gold-crayola: hsl(38, 61%, 73%);
+  --gold-crayola: #d7a135;
   --quick-silver: hsla(0, 0%, 65%, 1);
   --davys-grey: hsla(30, 3%, 34%, 1);
   --smoky-black-1: hsla(40, 12%, 5%, 1);
@@ -498,7 +547,7 @@ body.nav-active { overflow: hidden; }
   padding-inline-start: 40px;
   appearance: none;
   cursor: pointer;
-}
+ }
 
 .icon-wrapper ion-icon {
   position: absolute;

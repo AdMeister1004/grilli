@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Breakfast Menu</title>
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+   <!-- 
+    - #PRELOADER
+  -->
+
+  <div class="preload" data-preaload>
+    <div class="circle"></div>
+    <p class="text">LesVigo</p>
+  </div>
+
+
+</head>
+<body>
+
+   <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="index.html" class="logo">
+        <img src="./assets/images/logo1.png" width="160" height="50" alt="LesVigo - Home">
+      </a>
+
+      <h1 class="menu-title">BREAKFAST MENU</h1>
+
+      <nav class="navbar" data-navbar>
+
+        <button class="close-btn" aria-label="close menu" data-nav-toggler>
+          <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+        </button>
+
+        <a href="index.html" class="logo">
+          <img src="./assets/images/logo1.png" width="160" height="50" alt="LesVigo - Home">
+        </a>
+        <a href="./assets/menu.pdf" download="Breakfast_Menu.pdf" class="btn btn-secondary">
+          <span class="text text-1">Download Menu</span>
+
+          <span class="text text-2" aria-hidden="true">Download Menu</span>
+        </a>
+
+        <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+          <span class="line line-1"></span>
+          <span class="line line-2"></span>
+          <span class="line line-3"></span>
+        </button>
+
+        <div class="overlay" data-nav-toggler data-overlay></div>
+
+      </div>
+  </header>
+
+<section class="section menu" aria-label="menu-label" id="menu">
+  <div class="container">
+
+    <p class="section-subtitle text-center label-2">Morning Delights</p>
+
+    <h2 class="headline-1 section-title text-center">Breakfast Menu</h2>
+
+    <ul class="grid-list">
+      <!-- menu items -->
+      <li>
+        <div class="menu-card" data-item="Pancakes">
+          <figure class="card-banner img-holder">
+            <img src="./assets/images/breakfast-1.png" alt="Pancakes" class="img-cover">
+          </figure>
+          <div class="title-wrapper">
+            <h3>Pancakes</h3>
+            <p class="hidden">Fluffy pancakes with syrup</p>
+            <p class="hidden">Price: $5.99</p>
+            <p class="hidden">Reviews: 200</p>
+            <p class="hidden">Rating: 4.5/5</p>
+            <div class="rating-stars hidden">
+              <span class="star"></span>
+              <span class="star"></span>
+              <span class="star"></span>
+              <span class="star"></span>
+              <span class="star"></span>
+            </div>
+            <button class="add-to-cart hidden">Add to Cart</button>
+          </div>
+        </div>
+      </li>
+      <!-- ... rest of the items ... -->
+    </ul>
+    <!-- Download button -->
+    <a href="./assets/menu.pdf" download="Breakfast_Menu.pdf" class="btn btn-primary">
+      <span class="text text-1">Download Menu</span>
+      <span class="text text-2" aria-hidden="true">Download Menu</span>
+    </a>
+  </div>
+</section>
+
+<!-- Details Modal -->
+<div class="details" id="details">
+  <button class="close-btn" onclick="closeDetails()">Close</button>
+  <img src="" alt="" id="details-img">
+  <div class="title-wrapper">
+    <h3 id="details-title"></h3>
+    <span id="details-price"></span>
+  </div>
+  <p id="details-desc"></p>
+  <p><strong>Testimonial:</strong> <span id="details-testimonial"></span></p>
+  <p><strong>Rating:</strong> <span id="details-rating"></span></p>
+</div>
+
+<script>
+  // Merged JavaScript
+  const items = {
+    "Pancakes": {
+      img: "./assets/images/breakfast-1.png",
+      title: "Pancakes",
+      price: "$5.99",
+      desc: "Fluffy pancakes with syrup",
+      testimonial: "The best pancakes I've ever had!",
+      rating: "4.5/5"
+    },
+    // ... rest of the items ...
+  };
+
+  document.querySelectorAll('.menu-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const item = items[card.dataset.item];
+      if (item) {
+        document.getElementById('details-img').src = item.img;
+        document.getElementById('details-title').textContent = item.title;
+        document.getElementById('details-price').textContent = item.price;
+        document.getElementById('details-desc').textContent = item.desc;
+        document.getElementById('details-testimonial').textContent = item.testimonial;
+        document.getElementById('details-rating').textContent = item.rating;
+        document.getElementById('details').style.display = 'block';
+      }
+    });
+  });
+
+  function closeDetails() {
+    document.getElementById('details').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>

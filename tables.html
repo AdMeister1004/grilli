@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Floor Plan</title>
+  <style>
+    /* Basic styles for the floor plan */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .floor-plan {
+      max-width: 800px;
+      margin: 20px;
+    }
+    .table {
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      background-color: #007bff;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      margin: 10px;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+    .table:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+<div class="floor-plan">
+  <div class="table" onclick="reserveTable(1)" title="Table 1"></div>
+  <div class="table" onclick="reserveTable(2)" title="Table 2"></div>
+  <div class="table" onclick="reserveTable(3)" title="Table 3"></div>
+  <!-- Add more tables as needed -->
+</div>
+
+<script>
+  function reserveTable(tableNumber) {
+    // Replace this with your reservation logic or redirect
+    alert("You clicked on Table " + tableNumber + ". Redirecting to reservation page...");
+    // Example redirect
+    window.location.href = "reservation.html?table=" + tableNumber; // You can pass the table number as a query parameter
+  }
+</script>
+
+</body>
+</html>
